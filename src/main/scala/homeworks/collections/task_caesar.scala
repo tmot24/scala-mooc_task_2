@@ -17,8 +17,10 @@ object task_caesar {
    */
   def encrypt(word: String, offset: Int): String = {
 
-    // Решил двумя разными способами, реализация encrypt мне нравиться больше чем decrypt, что скажите?
-    // на всякий случай вставлю ещё и реализацию decrypt ниже альтернативным способом
+    /**
+     * Решил двумя разными способами, реализация encrypt мне нравиться больше чем decrypt, что скажите?
+    на всякий случай вставлю ещё и реализацию decrypt ниже альтернативным способом
+     */
 
     word
       .toCharArray
@@ -57,16 +59,18 @@ object task_caesar {
 
     arrayChar.mkString("")
 
-    //    word
-    //      .toCharArray
-    //      .map(_.toInt)
-    //      .map(_ - offset % 26)
-    //      .collect {
-    //        case i if i < 65 => i + 26
-    //        case i => i
-    //      }
-    //      .map(_.toChar)
-    //      .mkString("")
+    /**
+     * word
+        .toCharArray
+        .map(_.toInt)
+        .map(_ - offset % 26)
+        .collect {
+          case i if i < 65 => i + 26
+          case i => i
+        }
+        .map(_.toChar)
+        .mkString("")
+     */
   }
 
 }
