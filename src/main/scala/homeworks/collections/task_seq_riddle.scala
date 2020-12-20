@@ -46,11 +46,11 @@ object task_seq_riddle extends App {
    * 2. Реализуйте ленивый список, который генерирует данную последовательность
    * Hint: см. LazyList.cons
    *
-   * lazy val funSeq: LazyList[List[Int]]  ...
+   * lazy val funSeq: LazyList[List[Int] ] ...
    *
    */
 
 
-//  val funSeq: LazyList[List[Int]] = ???
-//    task"Реализуйте ленивый список, который генерирует данную последовательность"()
+  val funSeq: LazyList[List[Int]] = ???
+    task"Реализуйте ленивый список, который генерирует данную последовательность"()
 }
