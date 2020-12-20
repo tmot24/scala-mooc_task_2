@@ -18,7 +18,7 @@ object task_caesar {
   def encrypt(word: String, offset: Int): String = {
 
     // Решил двумя разными способами, реализация encrypt мне нравиться больше чем decrypt, что скажите?
-    // на всякий случай вставлю ещё и реализацию decrypt ниже
+    // на всякий случай вставлю ещё и реализацию decrypt ниже альтернативным способом
 
     word
       .toCharArray
