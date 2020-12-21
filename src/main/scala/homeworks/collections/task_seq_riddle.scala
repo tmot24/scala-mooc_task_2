@@ -3,6 +3,7 @@ package homeworks.collections
 import homeworks.HomeworksUtils.TaskSyntax
 
 import scala.annotation.tailrec
+import scala.collection.immutable.LazyList.cons
 
 object task_seq_riddle extends App {
 
@@ -40,7 +41,6 @@ object task_seq_riddle extends App {
     }
     nextLine2(currentLine)
   }
-  println(nextLine(List(1, 1, 1, 2, 2, 1)))
 
   /**
    * 2. Реализуйте ленивый список, который генерирует данную последовательность
@@ -50,7 +50,5 @@ object task_seq_riddle extends App {
    *
    */
 
-
-  val funSeq: LazyList[List[Int]] = ???
-    task"Реализуйте ленивый список, который генерирует данную последовательность"()
+  lazy val funSeq: LazyList[List[Int]] = LazyList.cons(hd = List(1), tl = funSeq.map(nextLine))
 }
