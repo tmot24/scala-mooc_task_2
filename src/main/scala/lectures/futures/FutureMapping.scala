@@ -49,19 +49,19 @@ object FutureMapping extends App {
   val fer3 = f3.flatMap(x => Future.failed[Int](new Exception("ex3")))
   val fer2 = f2.flatMap(x => Future.failed[Int](new Exception("ex2")))
 
-  val fs: Future[List[Int]] = Future.sequence(List[Future[Int]](
+/**  val fs: Future[List[Int]] = Future.sequence(List[Future[Int]](
     f1,
     fer2,
     fer3
-  ))
+  ))*/
 
   /** traverse */
   val fs2: Future[List[Int]] = Future.traverse(List(1, 2, 3)) {
     x => Future.successful(x)
   }
 
-  Await.ready(fs, Duration.Inf)
-  println(fs)
+/*  Await.ready(fs, Duration.Inf)
+  println(fs)*/
   println("time: " + (System.currentTimeMillis() - startTime))
 
   /** parallel start, combining */
