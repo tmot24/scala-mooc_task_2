@@ -23,9 +23,9 @@ object task_futures_sequence {
                      (implicit ex: ExecutionContext): Future[(List[A], List[Throwable])] = {
     futures.foldLeft(Future.successful((List.empty[A], List.empty[Throwable])))
     { (finalList, future) => finalList.flatMap
-      { case (alist, exceptionList) => future.map { success => (alist:+ success, exceptionList) }
+      { case (aList, exceptionList) => future.map { success => (aList.appended(success), exceptionList) }
         .recover
-        { case error: Throwable => (alist, exceptionList :+ error) }
+        { case error: Throwable => (aList, exceptionList.appended(error)) }
       }
     }
   }
