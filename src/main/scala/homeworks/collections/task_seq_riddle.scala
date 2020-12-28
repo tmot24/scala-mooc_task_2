@@ -22,24 +22,12 @@ object task_seq_riddle extends App {
    * */
 
   def nextLine(currentLine: List[Int]): List[Int] = {
-    @tailrec
-    def nextLine2(currentLine: List[Int], acc: List[List[Int]] = Nil): List[Int] = {
-      currentLine.headOption match {
-        case None =>
-          val list = acc.reverse
-          val size = list.map(_.size)
-          val zip = size.zip(list.flatMap(_.distinct))
-          val result = for {
-            t <- zip
-          } yield List(t._1, t._2)
-          result.flatten
-        case Some(value) =>
-          val firstValues = currentLine.takeWhile(_ == value)
-          val restValues = currentLine.dropWhile(_ == value)
-          nextLine2(restValues, firstValues :: acc)
+    currentLine.foldLeft(List.empty[Int]) {
+      (acc, currentInt) => acc match {
+        case h :: count :: rest if currentInt == h => currentInt :: (count + 1) :: rest
+        case _ => currentInt :: 1 :: acc
       }
-    }
-    nextLine2(currentLine)
+    }.reverse
   }
 
   /**

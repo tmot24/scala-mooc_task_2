@@ -23,7 +23,6 @@ object task_caesar {
      */
 
     word
-      .toCharArray
       .map(_.toInt)
       .map(_ + offset % 26)
       .collect {
